@@ -18,6 +18,14 @@ These are the objects that are already modeled and included in the schema.
 ### Note:
 * Please use RSpec for the test, but otherwise use any libraries you prefer.
 * We encourage writing the tests first! If you are comfortable with TDD, do Step 3 before Step 2.
+* Please make frequent commits (the more the commits, the easier for us to review coding patterns)
+
+### We evaluate the code based on the following criteria:
+* Strong database design and modelling
+* Good REST API practices
+* Good usage of model level constraints, validations, etc
+* Good coding practices, we follow https://github.com/rubocop-hq/ruby-style-guide as far as possible at Floh
+* Test cases (rspec or other) for controller and model methods
 
 ### Step 1
 Create a model for a customer order.
@@ -42,3 +50,9 @@ Write an RSpec test to verify that order creation endpoint behaves as described 
 ### Step 4
 Create an endpoint to display a single order resource at the  /orders/{#id}.json endpoint.
 * Response should contain all order fields, and additionally include variant id, name, price, and quantity ordered for each variant included in the order.
+
+### Delivery:
+* Submit a pull request
+
+### Bonus points for:
+* Heroku deployable button in the README file (based on https://devcenter.heroku.com/articles/heroku-button)
