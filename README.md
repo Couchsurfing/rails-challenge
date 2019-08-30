@@ -51,6 +51,10 @@ Write an RSpec test to verify that order creation endpoint behaves as described 
 Create an endpoint to display a single order resource at the  /orders/{#id}.json endpoint.
 * Response should contain all order fields, and additionally include variant id, name, price, and quantity ordered for each variant included in the order.
 
+### Step 5
+Create a front-end using any of the popular front-end frameworks (React, Angular, Vue, etc.). 
+Front-end should allow the user to create orders, view all orders, and change order status. 
+
 ### Delivery:
 * Submit a pull request
 
