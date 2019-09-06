@@ -6,6 +6,7 @@
 * Run ```bundle install``` to install gems
 * Setup database ```rake db:setup```
 * Run the app ```rails server``` or an interactive console ```rails console``` to test that your app is running.
+* To populate initial db entries (Customer, Product, Variant, and an Order) execute `rails db:seed`
 
 ### Frontend Setup
 * Run `yarn --cwd orders-app/ install` to install packages

@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 customer = Customer.create!(name: 'Geoff Lancaster', email: 'hire@geofflancaster.com')
+Customer.create!(name: 'John Smith', email: 'john.smith@gmail.com')
 
 product = Product.create!(name: 'Bean Bag Couch')
 couch = Variant.create!(name: 'Gray', cost: '39999', stock_amount: 10, weight: 38.283, product_id: product.id)
