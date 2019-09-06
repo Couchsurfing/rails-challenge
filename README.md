@@ -6,6 +6,13 @@
 * Run ```bundle install``` to install gems
 * Setup database ```rake db:setup```
 * Run the app ```rails server``` or an interactive console ```rails console``` to test that your app is running.
+* To populate initial db entries (Customer, Product, Variant, and an Order) execute `rails db:seed`
+
+### Frontend Setup
+* Run `yarn --cwd orders-app/ install` to install packages
+* If heroku cli is available locally: run `heroku local -f Procfile.dev` to start the API server and the frontend server
+* If not,`yarn --cwd orders-app/ start` will start the frontend alone.
+* After it's running, browse to [homepage](http://localhost:4000)
 
 ### Premise:
 * E-commerce sites often follow a similar data format. I've already created models for some of the more common resources.
@@ -60,3 +67,5 @@ Front-end should allow the user to create orders, view all orders, and change or
 
 ### Bonus points for:
 * Heroku deployable button in the README file (based on https://devcenter.heroku.com/articles/heroku-button)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+* This doesn't work because Heroku doesn't allow you to run apps on multiple ports. You can use heroku to run locally by executing `heroku local -f Procfile.dev`
