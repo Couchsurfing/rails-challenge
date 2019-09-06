@@ -7,6 +7,15 @@
 * Setup database ```rake db:setup```
 * Run the app ```rails server``` or an interactive console ```rails console``` to test that your app is running.
 
+### Frontend Setup
+Run `yarn --cwd orders-app/ install` to install packages
+
+If heroku cli is available locally: run `heroku local -f Procfile.dev` to start the API server and the frontend server
+
+If not,`yarn --cwd orders-app/ start` will start the frontend alone.
+
+After it's running, browse to [homepage](http://localhost:4000)
+
 ### Premise:
 * E-commerce sites often follow a similar data format. I've already created models for some of the more common resources.
 These are the objects that are already modeled and included in the schema.
