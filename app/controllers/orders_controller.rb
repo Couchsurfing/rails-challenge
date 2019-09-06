@@ -13,7 +13,8 @@ class OrdersController < ApplicationController
   def create
     data = order_params
 
-    # validate customer is valid. This allows the user specify the customer id but in production should be determined based on the user's token
+    # validate customer is valid. This allows the user specify the customer id 
+    # but in production should be determined based on the user's token
     unless Customer.exists?(data[:customer_id])
       raise ActiveRecord::RecordNotFound, 'Customer does not exist.'
     end
@@ -51,7 +52,7 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order).permit([
                                     :customer_id,
-                                    { order_variant: %i[variant_id quantity] }
+                                    { order_variant: [:variant_id, :quantity] }
                                   ])
   end
 
