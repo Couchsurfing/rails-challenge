@@ -10,56 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_04_044531) do
-
-  create_table "collections", force: :cascade do |t|
-    t.string "name"
-    t.string "type"
+ActiveRecord::Schema.define(version: 20_190_904_044_531) do
+  create_table 'collections', force: :cascade do |t|
+    t.string 'name'
+    t.string 'type'
   end
 
-  create_table "collections_products", id: false, force: :cascade do |t|
-    t.integer "product_id"
-    t.integer "collection_id"
-    t.index ["collection_id"], name: "index_collections_products_on_collection_id"
-    t.index ["product_id"], name: "index_collections_products_on_product_id"
+  create_table 'collections_products', id: false, force: :cascade do |t|
+    t.integer 'product_id'
+    t.integer 'collection_id'
+    t.index ['collection_id'], name: 'index_collections_products_on_collection_id'
+    t.index ['product_id'], name: 'index_collections_products_on_product_id'
   end
 
-  create_table "customers", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
+  create_table 'customers', force: :cascade do |t|
+    t.string 'name'
+    t.string 'email'
   end
 
-  create_table "order_variants", id: false, force: :cascade do |t|
-    t.integer "order_id"
-    t.integer "variant_id"
-    t.integer "quantity"
-    t.integer "item_cost"
-    t.index ["order_id"], name: "index_order_variants_on_order_id"
-    t.index ["variant_id"], name: "index_order_variants_on_variant_id"
+  create_table 'order_variants', id: false, force: :cascade do |t|
+    t.integer 'order_id'
+    t.integer 'variant_id'
+    t.integer 'quantity'
+    t.integer 'item_cost'
+    t.index ['order_id'], name: 'index_order_variants_on_order_id'
+    t.index ['variant_id'], name: 'index_order_variants_on_variant_id'
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.integer "customer_id"
-    t.string "status", default: "pending"
-    t.integer "subtotal", null: false
-    t.float "sales_tax_rate", default: 0.0
-    t.float "sales_tax", default: 0.0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["customer_id"], name: "index_orders_on_customer_id"
+  create_table 'orders', force: :cascade do |t|
+    t.integer 'customer_id'
+    t.string 'status', default: 'pending'
+    t.integer 'subtotal', null: false
+    t.float 'sales_tax_rate', default: 0.0
+    t.float 'sales_tax', default: 0.0
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['customer_id'], name: 'index_orders_on_customer_id'
   end
 
-  create_table "products", force: :cascade do |t|
-    t.string "name"
+  create_table 'products', force: :cascade do |t|
+    t.string 'name'
   end
 
-  create_table "variants", force: :cascade do |t|
-    t.string "name"
-    t.integer "cost"
-    t.integer "stock_amount"
-    t.float "weight"
-    t.integer "product_id"
-    t.index ["product_id"], name: "index_variants_on_product_id"
+  create_table 'variants', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'cost'
+    t.integer 'stock_amount'
+    t.float 'weight'
+    t.integer 'product_id'
+    t.index ['product_id'], name: 'index_variants_on_product_id'
   end
-
 end

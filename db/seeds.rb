@@ -8,11 +8,10 @@
 
 customer = Customer.create!(name: 'Geoff Lancaster', email: 'hire@geofflancaster.com')
 
-
 product = Product.create!(name: 'Bean Bag Couch')
 couch = Variant.create!(name: 'Gray', cost: '39999', stock_amount: 10, weight: 38.283, product_id: product.id)
 couch2 = Variant.create!(name: 'Red', cost: '39999', stock_amount: 10, weight: 38.283, product_id: product.id)
 
-order = Order.new(customer_id: customer.id, subtotal: 39999, sales_tax_rate: 0.0825, sales_tax: 3299.9175)
-order.order_variant.new(order_id: order.id, variant_id: couch.id, quantity: 1, item_cost: 39999)
-order.order_variant.new(order_id: order.id, variant_id: couch2.id, quantity: 1, item_cost: 39999)
+order = Order.new(customer_id: customer.id, subtotal: 39_999, sales_tax_rate: 0.0825, sales_tax: 3299.9175)
+order.order_variant.new(order_id: order.id, variant_id: couch.id, quantity: 1, item_cost: 39_999)
+order.order_variant.new(order_id: order.id, variant_id: couch2.id, quantity: 1, item_cost: 39_999)
