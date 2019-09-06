@@ -3,7 +3,7 @@ import './App.css';
 import { Nav } from './components/nav';
 import { OrdersCreate } from './components/orders/create';
 import { OrdersIndex } from './components/orders/index';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
   return (

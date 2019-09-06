@@ -1,7 +1,5 @@
 import React from 'react';
-import { all, update } from '../../api/orders';
-import { getAllVariants } from '../../api/products';
-import { Loading } from '../loading';
+import { update } from '../../api/orders';
 import './index.css';
 
 export class OrderRow extends React.Component {
