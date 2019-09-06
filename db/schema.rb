@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_27_215024) do
+ActiveRecord::Schema.define(version: 2019_09_04_044531) do
 
   create_table "collections", force: :cascade do |t|
     t.string "name"
@@ -27,6 +27,27 @@ ActiveRecord::Schema.define(version: 2019_02_27_215024) do
   create_table "customers", force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.index ["email"], name: "index_customers_on_email"
+  end
+
+  create_table "order_variants", id: false, force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "variant_id"
+    t.integer "quantity"
+    t.integer "item_cost"
+    t.index ["order_id"], name: "index_order_variants_on_order_id"
+    t.index ["variant_id"], name: "index_order_variants_on_variant_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "customer_id"
+    t.string "status", default: "pending"
+    t.integer "subtotal", null: false
+    t.float "sales_tax_rate", null: false
+    t.float "sales_tax", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
   create_table "products", force: :cascade do |t|
