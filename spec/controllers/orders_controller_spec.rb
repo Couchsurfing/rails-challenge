@@ -4,12 +4,7 @@ RSpec.describe OrdersController, type: :controller do
     before() do
         @product = Product.create(name: 'Test product')
     end
-    after(:each) do #cleanup
-        @customer && @customer.destroy
-        @variant && @variant.destroy
-        @variant2 && @variant2.destroy
-        @order && @order.destroy
-    end
+    
   describe "POST orders#create" do
     it "with valid params" do
       @customer = Customer.create(email: 'hire@geofflancaster.com')
@@ -61,22 +56,22 @@ RSpec.describe OrdersController, type: :controller do
     it "returns a successful response" do
       get :index, as: :json
       expect(response.status).to eq(200)
-      expect(JSON.parse(response.body).size).to eq(0)
+      expect(JSON.parse(response.body).count).to eq(0)
       expect(response.content_type).to eq('application/json')
     end
     it "should have new order item" do        
         @customer = Customer.create(email: 'hire@geofflancaster.com')
         @product = Product.create(name: 'Test product')
       @variant = Variant.create(product: @product, cost: 100, stock_amount: 5, weight: 10.2)
-      @order = Order.new(customer: @customer, subtotal: 100)
-      order_variant = OrderVariant.new(quantity: 1, variant: @variant)
+      @order = Order.new(customer: @customer, subtotal: 100, sales_tax_rate: 0.0825, sales_tax: 0.08)
+      order_variant = OrderVariant.new(quantity: 1, variant: @variant, item_cost: 100)
       variants = Array.new
       variants.push(order_variant)
       @order.order_variant = variants
       @order.save!
         get :index, as: :json
         expect(response.status).to eq(200)
-        expect(JSON.parse(response.body).size).to eq(0)
+        expect(JSON.parse(response.body).count).to eq(1)
         expect(response.content_type).to eq('application/json')
       end
 
