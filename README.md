@@ -67,4 +67,4 @@ Front-end should allow the user to create orders, view all orders, and change or
 ### Bonus points for:
 * Heroku deployable button in the README file (based on https://devcenter.heroku.com/articles/heroku-button)
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-This doesn't work because Heroku doesn't allow you to run apps on multiple ports. You can use heroku to run locally by executing `heroku local -f Procfile.dev`
+* This doesn't work because Heroku doesn't allow you to run apps on multiple ports. You can use heroku to run locally by executing `heroku local -f Procfile.dev`
