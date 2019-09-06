@@ -7,6 +7,6 @@ class Order < ApplicationRecord
   validates_presence_of :customer, :subtotal
 
   def as_json(options=nil)
-    attributes.merge(:order_variant => order_variant)
+    attributes.merge(:order_variant => order_variant, :customer => customer)
   end
 end

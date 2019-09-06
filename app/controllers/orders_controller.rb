@@ -1,5 +1,3 @@
-require 'json'
-
 class OrdersController < ApplicationController
   include Response
   include ExceptionHandler
@@ -42,7 +40,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    json_response(@order)
+    json_response(Order.find(params[:id]))
   end
 
   def update
